@@ -1,9 +1,11 @@
 const express = require('express')
-const cors = require('cors')
 
 const posts = require('../usecases/posts')
+const auth = require('../middlewares/auth')
 
 const router = express.Router()
+
+router.use(auth)
 
 router.get('/', async (req, res) => {
   try {
